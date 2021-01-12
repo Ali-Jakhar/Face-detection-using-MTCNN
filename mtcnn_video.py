@@ -1,8 +1,7 @@
 import cv2
 from mtcnn.mtcnn import MTCNN
 detector = MTCNN()
-# Create an object to read
-# from camera
+
 video = cv2.VideoCapture("input & output images/file2.mp4")
 
 # We need to check if camera
