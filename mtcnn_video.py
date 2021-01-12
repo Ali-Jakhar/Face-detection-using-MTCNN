@@ -3,7 +3,7 @@ from mtcnn.mtcnn import MTCNN
 detector = MTCNN()
 # Create an object to read
 # from camera
-video = cv2.VideoCapture("input & output images/file2.mp4")
+video = cv2.VideoCapture("input & output/file2.mp4")
 
 # We need to check if camera
 # is opened previously or not
@@ -20,7 +20,7 @@ size = (frame_width, frame_height)
 # Below VideoWriter object will create
 # a frame of above defined The output
 # is stored in 'filename.avi' file.
-result = cv2.VideoWriter('filename.avi',cv2.VideoWriter_fourcc(*'MJPG'),29, size)
+result = cv2.VideoWriter('input & output/filename.avi',cv2.VideoWriter_fourcc(*'MJPG'),29, size)
 frame_num=0
 while (True):
     ret, frame = video.read()
