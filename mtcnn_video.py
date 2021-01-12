@@ -1,13 +1,10 @@
 import cv2
 from mtcnn.mtcnn import MTCNN
 detector = MTCNN()
+video = cv2.VideoCapture("input & output/file2.mp4")
 
-video = cv2.VideoCapture("input & output images/file2.mp4")
-
-# We need to check if camera
-# is opened previously or not
 if (video.isOpened() == False):
-    print("Error reading video file")
+    print("Video Not Founds")
 
 # We need to set resolutions.
 # so, convert them from float to integer.
@@ -16,10 +13,7 @@ frame_height = int(video.get(4))
 
 size = (frame_width, frame_height)
 
-# Below VideoWriter object will create
-# a frame of above defined The output
-# is stored in 'filename.avi' file.
-result = cv2.VideoWriter('filename.avi',cv2.VideoWriter_fourcc(*'MJPG'),29, size)
+result = cv2.VideoWriter('input & output/filename.avi',cv2.VideoWriter_fourcc(*'MJPG'),29, size)
 frame_num=0
 while (True):
     ret, frame = video.read()
@@ -33,11 +27,9 @@ while (True):
                 x, y, width, height = face['box']
                 x2, y2 = x + width, y + height
                 cv2.rectangle(frame, (x, y), (x2, y2), (0, 0, 255), 4)
-        result.write(frame)
+        result.write(frame) #Write an image
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
-    # Break the loop
     else:
         break
 

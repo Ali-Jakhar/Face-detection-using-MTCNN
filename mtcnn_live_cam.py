@@ -2,7 +2,7 @@ import cv2
 from mtcnn.mtcnn import MTCNN
 detector = MTCNN()
 
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(0) #Read from computer or external camera 
 
 if (video.isOpened() == False):
     print("Web Camera not detected")
